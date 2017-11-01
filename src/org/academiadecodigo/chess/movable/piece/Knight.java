@@ -21,11 +21,11 @@ public class Knight extends Piece {
         // TOP
         if (pos.getRow() - 2 >= 0) {
             // LEFT
-            if (pos.getCol() - 1 >= 0) {
+            if (pos.getCol() - 1 >= 0 && !grid.isFriendly(getPlayer(), pos.getCol() - 1, pos.getRow() - 2)) {
                 moves.add(new Position(pos.getCol() - 1, pos.getRow() - 2));
             }
 
-            if (pos.getCol() + 1 < Constants.BOARD_SIZE) {
+            if (pos.getCol() + 1 < Constants.BOARD_SIZE && !grid.isFriendly(getPlayer(), pos.getCol() + 1, pos.getRow() - 2)) {
                 moves.add(new Position(pos.getCol() + 1, pos.getRow() - 2));
             }
         }
@@ -33,12 +33,12 @@ public class Knight extends Piece {
         // RIGHT
         if (pos.getCol() + 2 < Constants.BOARD_SIZE) {
             // TOP
-            if (pos.getRow() - 1 >= 0) {
+            if (pos.getRow() - 1 >= 0 && !grid.isFriendly(getPlayer(), pos.getCol() + 2, pos.getRow() - 1)) {
                 moves.add(new Position(pos.getCol() + 2, pos.getRow() - 1));
             }
 
             // BOTTOM
-            if (pos.getRow() + 1 < Constants.BOARD_SIZE) {
+            if (pos.getRow() + 1 < Constants.BOARD_SIZE && !grid.isFriendly(getPlayer(), pos.getCol() + 2, pos.getRow() + 1)) {
                 moves.add(new Position(pos.getCol() + 2, pos.getRow() + 1));
             }
         }
@@ -46,11 +46,11 @@ public class Knight extends Piece {
         // BOTTOM
         if (pos.getRow() + 2 < Constants.BOARD_SIZE) {
             // LEFT
-            if (pos.getCol() - 1 >= 0) {
+            if (pos.getCol() - 1 >= 0 && !grid.isFriendly(getPlayer(), pos.getCol() - 1, pos.getRow() + 2)) {
                 moves.add(new Position(pos.getCol() - 1, pos.getRow() + 2));
             }
 
-            if (pos.getCol() + 1 < Constants.BOARD_SIZE) {
+            if (pos.getCol() + 1 < Constants.BOARD_SIZE && !grid.isFriendly(getPlayer(), pos.getCol() + 1, pos.getRow() + 2)) {
                 moves.add(new Position(pos.getCol() + 1, pos.getRow() + 2));
             }
         }
@@ -58,12 +58,12 @@ public class Knight extends Piece {
         // LEFT
         if (pos.getCol() - 2 >= 0) {
             // TOP
-            if (pos.getRow() - 1 >= 0) {
+            if (pos.getRow() - 1 >= 0 && !grid.isFriendly(getPlayer(), pos.getCol() - 2, pos.getRow() - 1)) {
                 moves.add(new Position(pos.getCol() - 2, pos.getRow() - 1));
             }
 
             // BOTTOM
-            if (pos.getRow() + 1 < Constants.BOARD_SIZE) {
+            if (pos.getRow() + 1 < Constants.BOARD_SIZE && !grid.isFriendly(getPlayer(), pos.getCol() - 2, pos.getRow() + 1)) {
                 moves.add(new Position(pos.getCol() - 2, pos.getRow() + 1));
             }
         }

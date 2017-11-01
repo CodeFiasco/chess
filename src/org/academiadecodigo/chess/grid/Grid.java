@@ -112,11 +112,11 @@ public class Grid {
 
     public boolean isFriendly(Player player, int col, int row) {
 
-        if (col < 0 || col >= Constants.BOARD_SIZE || row < 0 || row >= Constants.BOARD_SIZE) {
+        if (col < 0 || col >= Constants.BOARD_SIZE || row < 0 || row >= Constants.BOARD_SIZE || pieces[col][row] == null) {
             return false;
         }
 
-        return pieces[col][row] == null || pieces[col][row].getPlayer() == player;
+        return pieces[col][row].getPlayer() == player;
     }
 
     public boolean isOccupied(int col, int row) {
