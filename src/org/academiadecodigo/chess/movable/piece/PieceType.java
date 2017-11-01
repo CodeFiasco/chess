@@ -4,7 +4,8 @@ public enum PieceType {
     KING("king.png"),
     QUEEN("queen.png"),
     ROOK("rook.png"),
-    KNIGHT("knight.png");
+    KNIGHT("knight.png"),
+    BISHOP("bishop.png");
 
     private String filePath;
 

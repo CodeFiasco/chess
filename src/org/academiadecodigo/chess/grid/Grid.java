@@ -25,7 +25,7 @@ public class Grid {
             }
         }
 
-        pieces[0][0] = new Knight(0, 0);
+        pieces[0][0] = new Bishop(0, 0);
     }
 
     public void click(int col, int row) {
