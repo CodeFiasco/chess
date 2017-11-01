@@ -23,7 +23,7 @@ public class Pawn extends Piece {
             moves.add(new Position(pos.getCol(), pos.getRow() + factor));
 
             // LEFT enemy
-            if (pos.getCol() > 0 && grid.getPieceAt(pos.getCol() + 1, pos.getRow() + factor) != null && grid.getPieceAt(pos.getCol() - 1, pos.getRow() + factor).getPlayer() != getPlayer()) {
+            if (pos.getCol() > 0 && grid.getPieceAt(pos.getCol() - 1, pos.getRow() + factor) != null && grid.getPieceAt(pos.getCol() - 1, pos.getRow() + factor).getPlayer() != getPlayer()) {
                 moves.add(new Position(pos.getCol() - 1, pos.getRow() + factor));
             }
 
