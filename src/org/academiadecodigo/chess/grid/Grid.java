@@ -9,11 +9,11 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 public class Grid {
 
     private Piece[][] pieces;
-    private Piece selectedPiece;
-
     private Square[][] cells;
 
+    private Piece selectedPiece;
     private Position[] possibleMoves;
+    private Player playerTurn;
 
     public Grid() {
         pieces = new Piece[8][8];
@@ -26,6 +26,7 @@ public class Grid {
         }
 
         createPieces();
+        playerTurn = Player.WHITE;
     }
 
     private void createPieces() {
@@ -78,6 +79,10 @@ public class Grid {
             return;
         }
 
+        if (pieces[col][row].getPlayer() != playerTurn) {
+            return;
+        }
+
         cells[col][row].changeColor(Constants.SELECTED_PIECE);
 
         selectedPiece = pieces[col][row];
@@ -104,6 +109,7 @@ public class Grid {
                 }
 
                 pieces[col][row] = selectedPiece;
+                playerTurn = playerTurn.getAdversary();
             }
         }
 

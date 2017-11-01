@@ -13,4 +13,17 @@ public enum Player {
     public String getFilePath() {
         return filePath;
     }
+
+    public Player getAdversary() {
+        switch (this) {
+            case WHITE:
+                return BLACK;
+
+            case BLACK:
+                return WHITE;
+        }
+
+        System.out.println("Something went wrong!");
+        return null;
+    }
 }
