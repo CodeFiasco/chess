@@ -17,25 +17,63 @@ public class Bishop extends Piece {
     public Position[] possibleMoves() {
         List<Position> moves = new LinkedList<>();
 
+        boolean topLeft = true, topRight = true, botLeft = true, botRight = true;
+
         for (int i = 1; i < Constants.BOARD_SIZE; i++) {
             // TOP LEFT
-            if (pos.getCol() - i >= 0 && pos.getRow() - i >= 0) {
-                moves.add(new Position(pos.getCol() - i, pos.getRow() - i));
+            if (topLeft && pos.getCol() - i >= 0 && pos.getRow() - i >= 0) {
+                if (grid.isOccupied(pos.getCol() - i, pos.getRow() - i)) {
+                    topLeft = false;
+
+                    if (!grid.isFriendly(getPlayer(), pos.getCol() - i, pos.getRow() - i)) {
+                        moves.add(new Position(pos.getCol() - i, pos.getRow() - i));
+                    }
+                } else {
+
+                    moves.add(new Position(pos.getCol() - i, pos.getRow() - i));
+                }
             }
 
             // TOP RIGHT
-            if (pos.getCol() + i < Constants.BOARD_SIZE && pos.getRow() - i >= 0) {
-                moves.add(new Position(pos.getCol() + i, pos.getRow() - i));
+            if (topRight && pos.getCol() + i < Constants.BOARD_SIZE && pos.getRow() - i >= 0) {
+                if (grid.isOccupied(pos.getCol() + i, pos.getRow() - i)) {
+                    topRight = false;
+
+                    if (!grid.isFriendly(getPlayer(), pos.getCol() + i, pos.getRow() - i)) {
+                        moves.add(new Position(pos.getCol() + i, pos.getRow() - i));
+                    }
+                } else {
+
+                    moves.add(new Position(pos.getCol() + i, pos.getRow() - i));
+                }
             }
 
             // BOTTOM LEFT
-            if (pos.getCol() - i >= 0 && pos.getRow() + i < Constants.BOARD_SIZE) {
-                moves.add(new Position(pos.getCol() - i, pos.getRow() + i));
+            if (botLeft && pos.getCol() - i >= 0 && pos.getRow() + i < Constants.BOARD_SIZE) {
+                if (grid.isOccupied(pos.getCol() - i, pos.getRow() + i)) {
+                    botLeft = false;
+
+                    if (!grid.isFriendly(getPlayer(), pos.getCol() - i, pos.getRow() + i)) {
+                        moves.add(new Position(pos.getCol() - i, pos.getRow() + i));
+                    }
+                } else {
+
+                    moves.add(new Position(pos.getCol() - i, pos.getRow() + i));
+                }
             }
 
             // BOTTOM RIGHT
-            if (pos.getCol() + i < Constants.BOARD_SIZE && pos.getRow() + i < Constants.BOARD_SIZE) {
-                moves.add(new Position(pos.getCol() + i, pos.getRow() + i));
+            if (botRight && pos.getCol() + i < Constants.BOARD_SIZE && pos.getRow() + i < Constants.BOARD_SIZE) {
+                if (grid.isOccupied(pos.getCol() + i, pos.getRow() + i)) {
+                    botRight = false;
+
+                    if (!grid.isFriendly(getPlayer(), pos.getCol() + i, pos.getRow() + i)) {
+                        moves.add(new Position(pos.getCol() + i, pos.getRow() + i));
+                    }
+                } else {
+
+                    moves.add(new Position(pos.getCol() + i, pos.getRow() + i));
+                }
             }
         }
 
