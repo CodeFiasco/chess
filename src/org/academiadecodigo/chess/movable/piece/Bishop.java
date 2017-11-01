@@ -16,7 +16,6 @@ public class Bishop extends Piece {
     @Override
     public Position[] possibleMoves() {
         List<Position> moves = new LinkedList<>();
-
         boolean topLeft = true, topRight = true, botLeft = true, botRight = true;
 
         for (int i = 1; i < Constants.BOARD_SIZE; i++) {
