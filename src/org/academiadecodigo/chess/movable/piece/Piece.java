@@ -14,16 +14,20 @@ public abstract class Piece implements Movable {
         this.pos = new Position(col, row);
         this.type = type;
 
-        representation = new Image("king.png", 4, 0);
+        representation = new Image("king.png", col, row);
     }
 
     public abstract Position[] possibleMoves();
 
-    public Position getPos() {
-        return pos;
+    @Override
+    public void move(int col, int row) {
+        representation.translate(col - pos.getCol(), row - pos.getRow());
+
+        pos.setCol(col);
+        pos.setRow(row);
     }
 
-    public PieceType getType() {
-        return type;
+    public Position getPos() {
+        return pos;
     }
 }

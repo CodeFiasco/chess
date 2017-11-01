@@ -53,10 +53,4 @@ public class King extends Piece {
 
         return moves.toArray(new Position[0]);
     }
-
-    @Override
-    public void move(int col, int row) {
-        pos.setCol(col);
-        pos.setRow(row);
-    }
 }

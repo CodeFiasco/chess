@@ -1,5 +1,6 @@
 package org.academiadecodigo.chess.grid;
 
+import org.academiadecodigo.chess.Constants;
 import org.academiadecodigo.chess.Position.Position;
 import org.academiadecodigo.chess.gui.Square;
 import org.academiadecodigo.chess.movable.piece.King;
@@ -21,7 +22,7 @@ public class Grid {
 
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells[i].length; j++) {
-                cells[i][j] = new Square(i, j, (i + j) % 2 == 0 ? Color.LIGHT_GRAY : Color.DARK_GRAY);
+                cells[i][j] = new Square(i, j, (i + j) % 2 == 0 ? Color.WHITE : Color.BLACK);
             }
         }
 
@@ -44,14 +45,14 @@ public class Grid {
             return;
         }
 
-        cells[col][row].changeColor(Color.GREEN);
+        cells[col][row].changeColor(Constants.SELECTED_PIECE);
 
         selectedPiece = pieces[col][row];
         possibleMoves = selectedPiece.possibleMoves();
 
-        for (Position p : possibleMoves) {
-            cells[p.getCol()][p.getRow()].changeColor(Color.BLUE);
-        }
+        /*for (Position p : possibleMoves) {
+            cells[p.getCol()][p.getRow()].changeColor(Constants.POSSIBLE_MOVE);
+        }*/
     }
 
     private void movePiece(int col, int row) {
@@ -59,7 +60,7 @@ public class Grid {
         cells[selectedPiece.getPos().getCol()][selectedPiece.getPos().getRow()].reset();
 
         for (Position p : possibleMoves) {
-            cells[p.getCol()][p.getRow()].reset();
+            // cells[p.getCol()][p.getRow()].reset();
 
             if (col == p.getCol() && row == p.getRow()) {
                 selectedPiece.move(col, row);
