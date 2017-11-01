@@ -20,15 +20,17 @@ public class Pawn extends Piece {
 
         if (pos.getRow() + factor >= 0 && pos.getRow() + factor < Constants.BOARD_SIZE) {
             // TOP / BOTTOM
-            moves.add(new Position(pos.getCol(), pos.getRow() + factor));
+            if (!grid.isOccupied(pos.getCol(), pos.getRow() + factor)) {
+                moves.add(new Position(pos.getCol(), pos.getRow() + factor));
+            }
 
             // LEFT enemy
-            if (pos.getCol() > 0 && grid.getPieceAt(pos.getCol() - 1, pos.getRow() + factor) != null && grid.getPieceAt(pos.getCol() - 1, pos.getRow() + factor).getPlayer() != getPlayer()) {
+            if (pos.getCol() > 0 && !grid.isFriendly(getPlayer(), pos.getCol() - 1, pos.getRow() + factor)) {
                 moves.add(new Position(pos.getCol() - 1, pos.getRow() + factor));
             }
 
             // RIGHT enemy
-            if (pos.getCol() + 1 < Constants.BOARD_SIZE - 1 && grid.getPieceAt(pos.getCol() + 1, pos.getRow() + factor) != null && grid.getPieceAt(pos.getCol() + 1, pos.getRow() + factor).getPlayer() != getPlayer()) {
+            if (pos.getCol() + 1 < Constants.BOARD_SIZE && !grid.isFriendly(getPlayer(), pos.getCol() + 1, pos.getRow() + factor)) {
                 moves.add(new Position(pos.getCol() + 1, pos.getRow() + factor));
             }
         }

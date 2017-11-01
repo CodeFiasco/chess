@@ -105,9 +105,16 @@ public class Grid {
         selectedPiece = null;
     }
 
-    public Piece getPieceAt(int col, int row) {
-        return pieces[col][row];
+    public boolean isFriendly(Player player, int col, int row) {
+
+        if (col < 0 || col >= Constants.BOARD_SIZE || row < 0 || row >= Constants.BOARD_SIZE) {
+            return false;
+        }
+
+        return pieces[col][row] == null || pieces[col][row].getPlayer() == player;
     }
 
-
+    public boolean isOccupied(int col, int row) {
+        return pieces[col][row] != null;
+    }
 }
