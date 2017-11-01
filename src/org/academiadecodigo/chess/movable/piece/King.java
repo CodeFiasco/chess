@@ -8,8 +8,8 @@ import java.util.List;
 
 public class King extends Piece {
 
-    public King() {
-        super(PieceType.KING, 0, 0);
+    public King(Player player, int col, int row) {
+        super(player, PieceType.KING, col, row);
     }
 
     @Override

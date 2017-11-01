@@ -25,7 +25,10 @@ public class Grid {
             }
         }
 
-        pieces[0][0] = new Bishop(0, 0);
+        pieces[0][1] = new Bishop(Player.WHITE,0, 1);
+        pieces[1][1] = new Bishop(Player.BLACK,1, 1);
+        pieces[0][0] = new Queen(Player.WHITE,0, 0);
+        pieces[1][0] = new Queen(Player.BLACK,1, 0);
     }
 
     public void click(int col, int row) {

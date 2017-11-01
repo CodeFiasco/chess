@@ -7,14 +7,15 @@ import org.academiadecodigo.chess.movable.Movable;
 public abstract class Piece implements Movable {
 
     protected Position pos;
-    private PieceType type;
     private Image representation;
+    private Player player;
 
-    public Piece(PieceType type, int col, int row) {
+    public Piece(Player player, PieceType type, int col, int row) {
+        this.player = player;
         this.pos = new Position(col, row);
-        this.type = type;
 
-        representation = new Image(type.getFilePath(), col, row);
+        System.out.println(player.getFilePath() + type.getFilePath());
+        representation = new Image(player.getFilePath() + type.getFilePath(), col, row);
     }
 
     public abstract Position[] possibleMoves();
@@ -29,5 +30,9 @@ public abstract class Piece implements Movable {
 
     public Position getPos() {
         return pos;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

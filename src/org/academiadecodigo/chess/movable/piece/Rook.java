@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Rook extends Piece {
 
-    public Rook(int col, int row) {
-        super(PieceType.ROOK, col, row);
+    public Rook(Player player, int col, int row) {
+        super(player, PieceType.ROOK, col, row);
     }
 
     @Override

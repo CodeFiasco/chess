@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Bishop extends Piece {
 
-    public Bishop(int col, int row) {
-        super(PieceType.BISHOP, col, row);
+    public Bishop(Player player, int col, int row) {
+        super(player, PieceType.BISHOP, col, row);
     }
 
     @Override
