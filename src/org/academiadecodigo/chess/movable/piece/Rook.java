@@ -56,7 +56,7 @@ public class Rook extends Piece {
                 if (grid.isOccupied(pos.getCol(), pos.getRow() + i)) {
                     bottom = false;
 
-                    if (grid.isFriendly(getPlayer(), pos.getCol(), pos.getRow() + i)) {
+                    if (!grid.isFriendly(getPlayer(), pos.getCol(), pos.getRow() + i)) {
                         moves.add(new Position(pos.getCol(), pos.getRow() + i));
                     }
                 } else {
@@ -71,7 +71,7 @@ public class Rook extends Piece {
                 if (grid.isOccupied(pos.getCol() - i, pos.getRow())) {
                     left = false;
 
-                    if (grid.isFriendly(getPlayer(), pos.getCol() - i, pos.getRow())) {
+                    if (!grid.isFriendly(getPlayer(), pos.getCol() - i, pos.getRow())) {
                         moves.add(new Position(pos.getCol() - i, pos.getRow()));
                     }
                 } else {
