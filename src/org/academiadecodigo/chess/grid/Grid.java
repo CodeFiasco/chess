@@ -89,6 +89,11 @@ public class Grid {
         possibleMoves = selectedPiece.possibleMoves();
 
         for (Position p : possibleMoves) {
+            if (isOccupied(p.getCol(), p.getRow())) {
+                cells[p.getCol()][p.getRow()].changeColor(Constants.POSSIBLE_KILL);
+                continue;
+            }
+
             cells[p.getCol()][p.getRow()].changeColor(Constants.POSSIBLE_MOVE);
         }
     }
