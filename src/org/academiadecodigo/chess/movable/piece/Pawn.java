@@ -29,12 +29,12 @@ public class Pawn extends Piece {
             }
 
             // LEFT enemy
-            if (pos.getCol() > 0 && !grid.isFriendly(getPlayer(), pos.getCol() - 1, pos.getRow() + factor)) {
+            if (pos.getCol() > 0 && grid.isOccupied(pos.getCol() - 1, pos.getRow() + factor) && !grid.isFriendly(getPlayer(), pos.getCol() - 1, pos.getRow() + factor)) {
                 moves.add(new Position(pos.getCol() - 1, pos.getRow() + factor));
             }
 
             // RIGHT enemy
-            if (pos.getCol() + 1 < Constants.BOARD_SIZE && !grid.isFriendly(getPlayer(), pos.getCol() + 1, pos.getRow() + factor)) {
+            if (pos.getCol() + 1 < Constants.BOARD_SIZE && grid.isOccupied( pos.getCol() + 1, pos.getRow() + factor) && !grid.isFriendly(getPlayer(), pos.getCol() + 1, pos.getRow() + factor)) {
                 moves.add(new Position(pos.getCol() + 1, pos.getRow() + factor));
             }
 
