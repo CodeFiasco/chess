@@ -17,7 +17,7 @@ public class Queen extends Piece {
 
         List<Position> moves = new LinkedList<>();
 
-        for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+        for (int i = 1; i < Constants.BOARD_SIZE; i++) {
 
             // TOP
             if (pos.getRow() - i >= 0) {

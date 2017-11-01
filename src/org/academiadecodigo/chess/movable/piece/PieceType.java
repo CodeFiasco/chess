@@ -2,7 +2,8 @@ package org.academiadecodigo.chess.movable.piece;
 
 public enum PieceType {
     KING("king.png"),
-    QUEEN("queen.png");
+    QUEEN("queen.png"),
+    ROOK("rook.png");
 
     private String filePath;
 
