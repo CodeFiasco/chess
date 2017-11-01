@@ -16,4 +16,8 @@ public class Image {
     public void translate(int cols, int rows) {
         picture.translate(Constants.CELL_SIZE * cols, Constants.CELL_SIZE * rows);
     }
+
+    public void delete() {
+        picture.delete();
+    }
 }

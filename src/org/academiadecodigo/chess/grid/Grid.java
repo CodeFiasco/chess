@@ -98,6 +98,11 @@ public class Grid {
             if (col == p.getCol() && row == p.getRow()) {
                 pieces[selectedPiece.getPos().getCol()][selectedPiece.getPos().getRow()] = null;
                 selectedPiece.move(col, row);
+
+                if (pieces[col][row] != null) {
+                    pieces[col][row].kill();
+                }
+
                 pieces[col][row] = selectedPiece;
             }
         }

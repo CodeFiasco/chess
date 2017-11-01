@@ -30,6 +30,10 @@ public abstract class Piece implements Movable {
         pos.setRow(row);
     }
 
+    public void kill() {
+        representation.delete();
+    }
+
     public Position getPos() {
         return pos;
     }
