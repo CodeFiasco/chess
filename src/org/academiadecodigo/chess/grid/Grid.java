@@ -1,6 +1,5 @@
 package org.academiadecodigo.chess.grid;
 
-import org.academiadecodigo.chess.Constants;
 import org.academiadecodigo.chess.gui.Square;
 import org.academiadecodigo.chess.movable.piece.Piece;
 import org.academiadecodigo.simplegraphics.graphics.Color;
@@ -19,5 +18,15 @@ public class Grid {
                 cells[i][j] = new Square(i, j, (i + j) % 2 == 0 ? Color.WHITE : Color.BLACK);
             }
         }
+    }
+
+    public void click(int col, int row) {
+
+        if (col >= cells.length || row >= cells[0].length) {
+            return;
+        }
+
+
+        cells[col][row].select();
     }
 }

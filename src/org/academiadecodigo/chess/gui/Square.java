@@ -13,4 +13,9 @@ public class Square {
         representation.setColor(color);
         representation.fill();
     }
+
+    public void select() {
+        representation.setColor(Color.BLUE);
+        representation.fill();
+    }
 }
