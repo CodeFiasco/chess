@@ -5,6 +5,7 @@ import org.academiadecodigo.chess.Position.Position;
 import org.academiadecodigo.chess.gui.Square;
 import org.academiadecodigo.chess.movable.piece.King;
 import org.academiadecodigo.chess.movable.piece.Piece;
+import org.academiadecodigo.chess.movable.piece.Queen;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public class Grid {
@@ -27,6 +28,7 @@ public class Grid {
         }
 
         pieces[0][0] = new King();
+        pieces[1][0] = new Queen(1, 0);
     }
 
     public void click(int col, int row) {
@@ -50,9 +52,9 @@ public class Grid {
         selectedPiece = pieces[col][row];
         possibleMoves = selectedPiece.possibleMoves();
 
-        /*for (Position p : possibleMoves) {
+        for (Position p : possibleMoves) {
             cells[p.getCol()][p.getRow()].changeColor(Constants.POSSIBLE_MOVE);
-        }*/
+        }
     }
 
     private void movePiece(int col, int row) {
@@ -60,7 +62,7 @@ public class Grid {
         cells[selectedPiece.getPos().getCol()][selectedPiece.getPos().getRow()].reset();
 
         for (Position p : possibleMoves) {
-            // cells[p.getCol()][p.getRow()].reset();
+            cells[p.getCol()][p.getRow()].reset();
 
             if (col == p.getCol() && row == p.getRow()) {
                 selectedPiece.move(col, row);

@@ -14,7 +14,7 @@ public abstract class Piece implements Movable {
         this.pos = new Position(col, row);
         this.type = type;
 
-        representation = new Image("king.png", col, row);
+        representation = new Image(type.getFilePath(), col, row);
     }
 
     public abstract Position[] possibleMoves();
