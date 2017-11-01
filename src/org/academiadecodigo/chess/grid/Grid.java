@@ -3,10 +3,7 @@ package org.academiadecodigo.chess.grid;
 import org.academiadecodigo.chess.Constants;
 import org.academiadecodigo.chess.Position.Position;
 import org.academiadecodigo.chess.gui.Square;
-import org.academiadecodigo.chess.movable.piece.King;
-import org.academiadecodigo.chess.movable.piece.Piece;
-import org.academiadecodigo.chess.movable.piece.Queen;
-import org.academiadecodigo.chess.movable.piece.Rook;
+import org.academiadecodigo.chess.movable.piece.*;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public class Grid {
@@ -28,7 +25,7 @@ public class Grid {
             }
         }
 
-        pieces[0][0] = new Rook(0, 0);
+        pieces[0][0] = new Knight(0, 0);
     }
 
     public void click(int col, int row) {
