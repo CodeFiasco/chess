@@ -25,9 +25,41 @@ public class Grid {
             }
         }
 
-        pieces[4][4] = new Pawn(this, Player.WHITE,4, 4);
-        pieces[6][4] = new Pawn(this, Player.WHITE,6, 4);
-        pieces[5][5] = new Pawn(this, Player.BLACK,5, 5);
+        createPieces();
+    }
+
+    private void createPieces() {
+        // Pawns
+        for (int i = 0; i < pieces.length; i++) {
+            pieces[i][1] = new Pawn(this, Player.BLACK, i, 1);
+            pieces[i][6] = new Pawn(this, Player.WHITE, i, 6);
+        }
+
+        // Rooks
+        pieces[0][0] = new Rook(this, Player.BLACK, 0, 0);
+        pieces[7][0] = new Rook(this, Player.BLACK, 7, 0);
+        pieces[0][7] = new Rook(this, Player.WHITE, 0, 7);
+        pieces[7][7] = new Rook(this, Player.WHITE, 7, 7);
+
+        // Knights
+        pieces[1][0] = new Knight(this, Player.BLACK, 1, 0);
+        pieces[6][0] = new Knight(this, Player.BLACK, 6, 0);
+        pieces[1][7] = new Knight(this, Player.WHITE, 1, 7);
+        pieces[6][7] = new Knight(this, Player.WHITE, 6, 7);
+
+        // Bishops
+        pieces[2][0] = new Bishop(this, Player.BLACK, 2, 0);
+        pieces[5][0] = new Bishop(this, Player.BLACK, 5, 0);
+        pieces[2][7] = new Bishop(this, Player.WHITE, 2, 7);
+        pieces[5][7] = new Bishop(this, Player.WHITE, 5, 7);
+
+        // Queens
+        pieces[4][0] = new Queen(this, Player.BLACK, 4, 0);
+        pieces[4][7] = new Queen(this, Player.WHITE, 4, 7);
+
+        // Kings
+        pieces[3][0] = new King(this, Player.BLACK, 3, 0);
+        pieces[3][7] = new King(this, Player.WHITE, 3, 7);
     }
 
     public void click(int col, int row) {
@@ -76,4 +108,6 @@ public class Grid {
     public Piece getPieceAt(int col, int row) {
         return pieces[col][row];
     }
+
+
 }

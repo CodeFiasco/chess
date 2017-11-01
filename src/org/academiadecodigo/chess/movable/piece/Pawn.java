@@ -16,7 +16,7 @@ public class Pawn extends Piece {
     @Override
     public Position[] possibleMoves() {
         List<Position> moves = new LinkedList<>();
-        int factor = getPlayer() == Player.WHITE ? 1 : -1;
+        int factor = getPlayer() == Player.WHITE ? -1 : 1;
 
         if (pos.getRow() + factor >= 0 && pos.getRow() + factor < Constants.BOARD_SIZE) {
             // TOP / BOTTOM
