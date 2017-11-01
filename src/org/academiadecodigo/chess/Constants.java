@@ -10,5 +10,5 @@ public abstract class Constants {
     public static final int BOARD_SIZE = 8;
 
     public static final Color POSSIBLE_MOVE = Color.LIGHT_GRAY;
-    public static final Color SELECTED_PIECE = Color.ORANGE;
+    public static final Color SELECTED_PIECE = Color.CYAN;
 }
