@@ -2,14 +2,15 @@ package org.academiadecodigo.chess.movable.piece;
 
 import org.academiadecodigo.chess.Constants;
 import org.academiadecodigo.chess.Position.Position;
+import org.academiadecodigo.chess.grid.Grid;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Rook extends Piece {
 
-    public Rook(Player player, int col, int row) {
-        super(player, PieceType.ROOK, col, row);
+    public Rook(Grid grid, Player player, int col, int row) {
+        super(grid, player, PieceType.ROOK, col, row);
     }
 
     @Override

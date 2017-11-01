@@ -25,8 +25,9 @@ public class Grid {
             }
         }
 
-        pieces[4][4] = new Pawn(Player.WHITE,4, 4);
-        pieces[5][5] = new Pawn(Player.BLACK,5, 5);
+        pieces[4][4] = new Pawn(this, Player.WHITE,4, 4);
+        pieces[6][4] = new Pawn(this, Player.WHITE,6, 4);
+        pieces[5][5] = new Pawn(this, Player.BLACK,5, 5);
     }
 
     public void click(int col, int row) {
@@ -70,5 +71,9 @@ public class Grid {
         }
 
         selectedPiece = null;
+    }
+
+    public Piece getPieceAt(int col, int row) {
+        return pieces[col][row];
     }
 }

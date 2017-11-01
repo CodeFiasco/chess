@@ -1,6 +1,7 @@
 package org.academiadecodigo.chess.movable.piece;
 
 import org.academiadecodigo.chess.Position.Position;
+import org.academiadecodigo.chess.grid.Grid;
 import org.academiadecodigo.chess.gui.Image;
 import org.academiadecodigo.chess.movable.Movable;
 
@@ -9,12 +10,13 @@ public abstract class Piece implements Movable {
     protected Position pos;
     private Image representation;
     private Player player;
+    protected Grid grid;
 
-    public Piece(Player player, PieceType type, int col, int row) {
+    public Piece(Grid grid, Player player, PieceType type, int col, int row) {
+        this.grid = grid;
         this.player = player;
         this.pos = new Position(col, row);
 
-        System.out.println(player.getFilePath() + type.getFilePath());
         representation = new Image(player.getFilePath() + type.getFilePath(), col, row);
     }
 

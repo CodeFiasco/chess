@@ -2,14 +2,15 @@ package org.academiadecodigo.chess.movable.piece;
 
 import org.academiadecodigo.chess.Constants;
 import org.academiadecodigo.chess.Position.Position;
+import org.academiadecodigo.chess.grid.Grid;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Knight extends Piece {
 
-    public Knight(Player player, int col, int row) {
-        super(player, PieceType.KNIGHT, col, row);
+    public Knight(Grid grid, Player player, int col, int row) {
+        super(grid, player, PieceType.KNIGHT, col, row);
     }
 
     @Override

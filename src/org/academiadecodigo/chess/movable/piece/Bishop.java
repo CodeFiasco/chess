@@ -2,14 +2,15 @@ package org.academiadecodigo.chess.movable.piece;
 
 import org.academiadecodigo.chess.Constants;
 import org.academiadecodigo.chess.Position.Position;
+import org.academiadecodigo.chess.grid.Grid;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Bishop extends Piece {
 
-    public Bishop(Player player, int col, int row) {
-        super(player, PieceType.BISHOP, col, row);
+    public Bishop(Grid grid, Player player, int col, int row) {
+        super(grid, player, PieceType.BISHOP, col, row);
     }
 
     @Override
